@@ -19,7 +19,7 @@ export default function OpSymbols(props){
             type:'conju',
             symb: '*',
             logTrans:[],
-            isValid: function(a,b) {
+            isTrue: function(a,b) {
                         return a === true && b === true ? true : false
                     }
         },
@@ -29,7 +29,7 @@ export default function OpSymbols(props){
             type:'condi',
             symb:'->',
             logTrans:[],
-            isValid: function(a,b) {
+            isTrue: function(a,b) {
                         return a === true && b === false ? false : true
                     }
         
@@ -38,7 +38,7 @@ export default function OpSymbols(props){
             type:'bicond',
             symb:'<->',
             logTrans:[],
-            isValid: function(a,b) {
+            isTrue: function(a,b) {
                         return (a === true && b === true )|| (a===false && b === false)? true : false
                     }
         },
@@ -46,7 +46,7 @@ export default function OpSymbols(props){
             type:'disju',
             symb:'v',
             logTrans:[],
-            isValid: function(a,b) {
+            isTrue: function(a,b) {
                         return a === true || b === false ? true : false
                     }
                 },
@@ -54,7 +54,7 @@ export default function OpSymbols(props){
             type:'nega',
             symb:'~',
             logTrans:[],
-            isValid: function(a) {
+            negate: function(a) {
                         return a === true ? false : true
                     }
         },
@@ -64,7 +64,7 @@ export default function OpSymbols(props){
     
         
          const list = opArray.map( op => {
-            return <li key = {op.type} ><button className = 'A'>A</button><button onClick={op.isValid}>{op.symb} </button><button className = 'B'>B</button></li>
+            return op.isTrue && <li key = {op.type} ><button className = 'A'>A</button><button onClick={op.isTrue}>{op.symb} </button><button className = 'B'>B</button></li>
         })
 
    
