@@ -1,35 +1,39 @@
-import React from 'react';
-// import Ops from './logicOps/Ops'
-function App() {
+import React, {Component} from 'react';
+import OpSymbols from './logicOps/OpSymbols'
 
 
-  let symbs ={
-
-    conjunction: '&',
-    conditional:'->',
-    disjunction:'v',
-    negation:'~'
-  }
 
 
-  function renderOperatos(symbs){
-      let a = 'A'
-      let b = 'B'
-      for (const [key,value] in Object.entries(symbs)) {
-        if (symbs.hasOwnProperty(key)) {
-         return <p>
+class App extends Component {
 
-           {a} {value} {b}
-         </p>
-          
-        }
-      }
-  }
+  state = {
+    premises: [],
+    conclusion: []
+};
+
+
+componentDidMount() {
+
+}
+
+
+
+
+
+  render(){
+
+    // const ops =this.renderOperatos()
+
+
   return (
     <main className='App'>
-    {renderOperatos(symbs)}
+
+
+     <ul>
+<OpSymbols/>
+     </ul>
     </main>
   );
 }
-
+}
 export default App;
